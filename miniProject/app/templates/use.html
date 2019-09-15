@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../static/jquery-3.4.1.min.js"></script>
+    <script>
+        
+    $( document ).ready( function() {
+        
+
+        $( '.box' ).click( function() {
+            $(this).addClass( "boxClick" ) ;
+            $(this).removeClass( "box" ) ;
+            $('.boxText').removeAttr("style");
+        });
+        $( '.boxCount' ).click( function() {
+		    var index = $(".boxCount").index(this)+1;
+            alertindex(index);
+        });
+    });
+    var num = 1;
+
+    function alertindex(index){
+        var i = index;
+        $(".boxCount option:eq(i)").val(num++);
+    };
+    </script>
+	<style type="text/css">
+        .main{
+            width: 800px;
+            height: 100%;
+            background-color: green;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .sub{
+            width: 300px;
+            height: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: blue;
+        }
+        .box{
+            width: 146px;
+            height: 146px;
+            border: 2px solid black;
+            float: left;
+        }
+        .title{
+            width: 100%;
+            height: 20px;
+            background-color: #fff;
+        }
+        .boxClick{
+            width: 150px;
+            height: 150px;
+            float: left;
+            background-color: rgba(255, 255, 255, 0.199);
+        }
+        .boxCount{
+            width: 98%;
+            height: 98%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0);
+            margin-top: -55px;
+            border: none;
+            font-size: 60px;
+        }
+        .boxText{
+            width: 45px;
+            height: 45px;
+            margin: 5px;
+            background-color: aquamarine;
+            text-align: center;
+            line-height: 40px;
+            font-size: 45px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+	<div class="main">
+        <div class="article">
+            <div class="title">가전제품</div>
+            <div class="sub">
+                <div class="box">
+                    <div class="boxText" style="visibility: hidden">-</div>
+                    <input class="boxCount" readonly>
+                </div>
+                <div class="box">
+                    <div class="boxText">-</div>
+                    <input class="boxCount" readonly>
+                </div>
+                <div class="box">
+                    <div class="boxText">-</div>
+                    <input class="boxCount" readonly>
+                </div>
+                <div class="box">
+                    <div class="boxText">-</div>
+                    <input class="boxCount" readonly>
+                </div>
+                <div class="box">
+                    <div class="boxText">-</div>
+                    <input class="boxCount" readonly>
+                </div>
+                <div class="box">
+                    <div class="boxText">-</div>
+                    <input class="boxCount" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="article"></div>
+        <div class="article"></div>
+        <div class="article"></div>
+    </div>
+</body>
+</html>
+
