@@ -5,26 +5,23 @@
     <title>Document</title>
     <script src="../static/jquery-3.4.1.min.js"></script>
     <script>
-        
+
+    var arrNum = new Array();
+    for(var i = 0; i < 20; i++){
+        arrNum[i]=0;
+    }
     $( document ).ready( function() {
         
-
         $( '.box' ).click( function() {
             $(this).addClass( "boxClick" ) ;
             $(this).removeClass( "box" ) ;
             $('.boxText').removeAttr("style");
         });
         $( '.boxCount' ).click( function() {
-		    var index = $(".boxCount").index(this)+1;
-            alertindex(index);
+            arrNum[$(".boxCount").index(this)] += 1;
+            $(this).val(arrNum[$(".boxCount").index(this)]);
         });
     });
-    var num = 1;
-
-    function alertindex(index){
-        var i = index;
-        $(".boxCount option:eq(i)").val(num++);
-    };
     </script>
 	<style type="text/css">
         .main{
@@ -91,23 +88,23 @@
                     <input class="boxCount" readonly>
                 </div>
                 <div class="box">
-                    <div class="boxText">-</div>
+                        <div class="boxText" style="visibility: hidden">-</div>
                     <input class="boxCount" readonly>
                 </div>
                 <div class="box">
-                    <div class="boxText">-</div>
+                        <div class="boxText" style="visibility: hidden">-</div>
                     <input class="boxCount" readonly>
                 </div>
                 <div class="box">
-                    <div class="boxText">-</div>
+                        <div class="boxText" style="visibility: hidden">-</div>
                     <input class="boxCount" readonly>
                 </div>
                 <div class="box">
-                    <div class="boxText">-</div>
+                        <div class="boxText" style="visibility: hidden">-</div>
                     <input class="boxCount" readonly>
                 </div>
                 <div class="box">
-                    <div class="boxText">-</div>
+                        <div class="boxText" style="visibility: hidden">-</div>
                     <input class="boxCount" readonly>
                 </div>
             </div>
