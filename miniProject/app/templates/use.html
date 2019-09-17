@@ -11,11 +11,10 @@
         arrNum[i]=0;
     }
     $( document ).ready( function() {
-        
         $( '.box' ).click( function() {
             $(this).addClass( "boxClick" ) ;
             $(this).removeClass( "box" ) ;
-            $('.boxText').removeAttr("style");
+            $(this).children('.boxText').removeAttr("style");
         });
         $( '.boxCount' ).click( function() {
             arrNum[$(".boxCount").index(this)] += 1;
