@@ -9,16 +9,29 @@
     var arrNum = new Array();
     for(var i = 0; i < 20; i++){
         arrNum[i]=0;
-    }
+    };
     $( document ).ready( function() {
-        $( '.box' ).click( function() {
-            $(this).addClass( "boxClick" ) ;
-            $(this).removeClass( "box" ) ;
-            $(this).children('.boxText').removeAttr("style");
-        });
         $( '.boxCount' ).click( function() {
             arrNum[$(".boxCount").index(this)] += 1;
             $(this).val(arrNum[$(".boxCount").index(this)]);
+
+            $(this).parent().addClass( "boxClick" ) ;
+            $(this).parent().removeClass( "box" ) ;
+            $(this).prev().removeAttr("style");
+        });
+        $( '.boxText' ).click( function() {
+            var a = arrNum[$(".boxText").index(this)];
+            if(a <= 1){
+                $(this).parent().removeClass( "boxClick" ) ;
+                $(this).parent().addClass( "box" ) ;
+                arrNum[$(".boxText").index(this)] = 0;
+                $(this).next().val('');
+                $(this).attr("style", "visibility: hidden");
+            }
+            else{
+                arrNum[$(".boxText").index(this)] -= 1;
+                $(this).next().val(arrNum[$(".boxText").index(this)]);
+            }
         });
     });
     </script>
@@ -55,13 +68,12 @@
             background-color: rgba(255, 255, 255, 0.199);
         }
         .boxCount{
-            width: 98%;
-            height: 98%;
-            margin-left: auto;
-            margin-right: auto;
+            width: 65px;
+            height: 60px;
+            margin-left: 40px;
             text-align: center;
             background-color: rgba(255, 255, 255, 0);
-            margin-top: -55px;
+            margin-top: -5px;
             border: none;
             font-size: 60px;
         }
