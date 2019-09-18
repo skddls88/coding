@@ -28,6 +28,18 @@
                 $(this).parent().removeClass( "image0" ) ; //0번째니까 냉장고 이미지
                 $(this).parent().addClass( "image0-0"); //흐려진 사진 으로 대체
             }
+            if(b == 1){//인덱스 값 확인하여 그 인덱스에 맞는 이미지 출력
+                $(this).parent().removeClass( "image1" ) ; //1번째니까 세탁기 이미지
+                $(this).parent().addClass( "image1-1"); //흐려진 사진 으로 대체
+            }
+            if(b == 2){//인덱스 값 확인하여 그 인덱스에 맞는 이미지 출력
+                $(this).parent().removeClass( "image2" ) ; //2번째니까 TV 이미지
+                $(this).parent().addClass( "image2-2"); //흐려진 사진 으로 대체
+            }
+            if(b == 3){//인덱스 값 확인하여 그 인덱스에 맞는 이미지 출력
+                $(this).parent().removeClass( "image3" ) ; //3번째니까 에어컨 이미지
+                $(this).parent().addClass( "image3-3"); //흐려진 사진 으로 대체
+            }
         });
 
         $( '.boxText' ).click( function() {//-버튼 클릭시 이벤트
@@ -44,6 +56,18 @@
                 if(b == 0){//인덱스 값 확인하여 그 인덱스에 맞는 이미지 출력
                     $(this).parent().removeClass( "image0-0" ) ;
                     $(this).parent().addClass( "image0");
+                }
+                if(b == 1){//인덱스 값 확인하여 그 인덱스에 맞는 이미지 출력
+                    $(this).parent().removeClass( "image1-1" ) ;
+                    $(this).parent().addClass( "image1");
+                }
+                if(b == 2){//인덱스 값 확인하여 그 인덱스에 맞는 이미지 출력
+                    $(this).parent().removeClass( "image2-2" ) ;
+                    $(this).parent().addClass( "image2");
+                }
+                if(b == 3){//인덱스 값 확인하여 그 인덱스에 맞는 이미지 출력
+                    $(this).parent().removeClass( "image3-3" ) ;
+                    $(this).parent().addClass( "image3");
                 }
             }
             else{
@@ -82,6 +106,30 @@
         }
         .image0-0{
             background-image: url('../static/images/냉장고(안개).png');
+            background-size: 150px;
+        }
+        .image1{
+            background-image: url('../static/images/세탁기.png');
+            background-size: 150px;
+        }
+        .image1-1{
+            background-image: url('../static/images/세탁기(안개).png');
+            background-size: 150px;
+        }
+        .image2{
+            background-image: url('../static/images/TV.png');
+            background-size: 150px;
+        }
+        .image2-2{
+            background-image: url('../static/images/TV(안개).png');
+            background-size: 150px;
+        }
+        .image3{
+            background-image: url('../static/images/에어컨.png');
+            background-size: 150px;
+        }
+        .image3-3{
+            background-image: url('../static/images/에어컨(안개).png');
             background-size: 150px;
         }
         .title{
@@ -126,15 +174,15 @@
                     <div class="boxText" style="visibility: hidden">-</div>
                     <input class="boxCount" readonly>
                 </div>
-                <div class="box">
+                <div class="box image1">
                         <div class="boxText" style="visibility: hidden">-</div>
                     <input class="boxCount" readonly>
                 </div>
-                <div class="box">
+                <div class="box image2">
                         <div class="boxText" style="visibility: hidden">-</div>
                     <input class="boxCount" readonly>
                 </div>
-                <div class="box">
+                <div class="box image3">
                         <div class="boxText" style="visibility: hidden">-</div>
                     <input class="boxCount" readonly>
                 </div>
