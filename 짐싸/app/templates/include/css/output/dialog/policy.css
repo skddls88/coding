@@ -1,0 +1,5 @@
+div#policy-dialog > div.dialog-content {
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.64);
+  font-size: 14px;
+}
