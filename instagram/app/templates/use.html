@@ -2,128 +2,69 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-    <title>Document</title>
+    <title>Insta</title>
     <script src="../static/jquery-3.4.1.min.js"></script>
-    <script>
-
-    var arrNum = new Array();
-    for(var i = 0; i < 20; i++){
-        arrNum[i]=0;
-    };
-    $( document ).ready( function() {
-        $( '.boxCount' ).click( function() {
-            arrNum[$(".boxCount").index(this)] += 1;
-            $(this).val(arrNum[$(".boxCount").index(this)]);
-
-            $(this).parent().addClass( "boxClick" ) ;
-            $(this).parent().removeClass( "box" ) ;
-            $(this).prev().removeAttr("style");
-        });
-        $( '.boxText' ).click( function() {
-            var a = arrNum[$(".boxText").index(this)];
-            if(a <= 1){
-                $(this).parent().removeClass( "boxClick" ) ;
-                $(this).parent().addClass( "box" ) ;
-                arrNum[$(".boxText").index(this)] = 0;
-                $(this).next().val('');
-                $(this).attr("style", "visibility: hidden");
-            }
-            else{
-                arrNum[$(".boxText").index(this)] -= 1;
-                $(this).next().val(arrNum[$(".boxText").index(this)]);
-            }
-        });
-    });
-    </script>
-	<style type="text/css">
-        .main{
-            width: 800px;
-            height: 100%;
-            background-color: green;
-            margin-left: auto;
-            margin-right: auto;
+    <style type="text/css">
+        body {
+            display: block;
+            margin: 0px;
         }
-        .sub{
-            width: 300px;
-            height: 450px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: blue;
-        }
-        .box{
-            width: 146px;
-            height: 146px;
-            border: 2px solid black;
-            float: left;
-        }
-        .title{
+        .id{
             width: 100%;
-            height: 20px;
-            background-color: #fff;
+            height: 400px;
         }
-        .boxClick{
-            width: 150px;
-            height: 150px;
-            float: left;
-            background-color: rgba(255, 255, 255, 0.199);
-        }
-        .boxCount{
-            width: 65px;
-            height: 60px;
-            margin-left: 40px;
+        .head{
+            width: 100%;
+            height: 100px;
+            background-color: rgba(101, 103, 105);
+            margin-bottom: 20px;
             text-align: center;
-            background-color: rgba(255, 255, 255, 0);
-            margin-top: -5px;
-            border: none;
-            font-size: 60px;
+            position: fixed;
         }
-        .boxText{
-            width: 45px;
-            height: 45px;
-            margin: 5px;
-            background-color: aquamarine;
+        .article{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin-bottom: 20px;
             text-align: center;
-            line-height: 40px;
-            font-size: 45px;
-            color: #fff;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .search{
+            margin-top: 38px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-	<div class="main">
-        <div class="article">
-            <div class="title">가전제품</div>
-            <div class="sub">
-                <div class="box">
-                    <div class="boxText" style="visibility: hidden">-</div>
-                    <input class="boxCount" readonly>
-                </div>
-                <div class="box">
-                        <div class="boxText" style="visibility: hidden">-</div>
-                    <input class="boxCount" readonly>
-                </div>
-                <div class="box">
-                        <div class="boxText" style="visibility: hidden">-</div>
-                    <input class="boxCount" readonly>
-                </div>
-                <div class="box">
-                        <div class="boxText" style="visibility: hidden">-</div>
-                    <input class="boxCount" readonly>
-                </div>
-                <div class="box">
-                        <div class="boxText" style="visibility: hidden">-</div>
-                    <input class="boxCount" readonly>
-                </div>
-                <div class="box">
-                        <div class="boxText" style="visibility: hidden">-</div>
-                    <input class="boxCount" readonly>
-                </div>
-            </div>
+	<div class="main">   
+        <div class="head">
+            <input class="search" placeholder="검색">
+        </div>  
+        <div class="id">
+
         </div>
-        <div class="article"></div>
-        <div class="article"></div>
-        <div class="article"></div>
+        <div class="article">
+                {% for item in return_data %}
+                <div class="item">
+                    <a href="{{ item.short_code }}" target="_blank"><img src="{{ item.thumnail }}"></a>
+                </div>
+                {% endfor %}
+        </div>
+            
     </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
